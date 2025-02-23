@@ -1,0 +1,118 @@
+body {
+  font-family: "JetBrains Mono", monospace, Inter, system-ui, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  background-color: #000000;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+/* User Submitted Websites dusrya page vr */
+
+.container {
+  width: 100%;
+
+  margin: 20px auto;
+  background: rgb(17, 17, 17);
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container h1 {
+  color: white;
+}
+
+#website-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  gap: 25px;
+  justify-content: center;
+}
+
+.site-card {
+  display: flex;
+  flex-direction: column; /* Row format */
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  background: #2a2828;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 15px;
+  width: 100%;
+  height: 29vh;
+  max-width: 33vh;
+}
+
+.site-card:hover {
+  background: #373636;
+
+  box-shadow: 0 4px 8px rgba(3, 123, 25, 0.2);
+}
+
+.site-card img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.site-info {
+  flex-grow: 1;
+}
+
+.site-info h3 {
+  margin: 0;
+  margin-bottom: 10px;
+  color: rgb(61, 197, 104);
+  font-size: 18px;
+}
+
+.site-info p {
+  color: #868484;
+  margin: 5px 0;
+  height: 20px;
+  overflow: hidden;
+}
+
+.site-info a {
+  display: inline-block;
+  text-decoration: none;
+  background: #32b377c3;
+  color: #fff;
+  padding: 5px 15px;
+  border-radius: 5px;
+  margin-top: 15px;
+  transition: 0.3s;
+}
+
+.site-info a:hover {
+  background: #0056b3;
+}
+
+.view-submissions,
+.back-button {
+  display: inline-block;
+  justify-content: center;
+  text-align: center;
+  background: #28a745;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  margin: 10px 0;
+  font-size: 15px;
+  width: 30vh;
+}
+
+.view-submissions:hover,
+.back-button:hover {
+  background: #218838;
+}

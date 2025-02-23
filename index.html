@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Submission</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- <link rel="stylesheet" href="popup.css"> -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="adminpopup.css">
+
+</head>
+
+<body>
+
+    <!-- Navbar Start -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="home.php"><img src="site logo.png" alt=""></a>
+            <h2>ToolsHub</h2>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="categories.php">Categories</a></li> <!-- Link to categories page -->
+            <li><a href="about.html">About</a></li>
+            <li><a href="../uploads/admin_panel/login.php">Log In</a></li> <!-- Open Login Popup -->
+
+        </ul>
+    </nav>
+
+
+    <div class="home-container">
+        <div class="home1">
+            <h1>Discover <span class="clr">AI Tools</span> &
+                Bookmarks<span class="clr"> Collection</span>
+            </h1>
+            <h3>Your curated space for discovering cutting-edge AI tools and organizing web resources in hacker style
+            </h3>
+            <div class="but">
+                <button><a href="#scr">Browse Collection</a> </button>
+
+                <button class="noclr"> <a href="user_display.php">Exlore AI tools</a></button>
+            </div>
+        </div>
+
+        <div id="digiworld">
+            <div class="dii">
+                <h2>🚀 Next-Gen Bookmarking</h2>
+                <h1>organizing Your Digital World <span class="clr">Like a hacker</span> </h1>
+                <p>Curate, discover, and organize cutting-edge AI tools and bookmarks in a single terminal-inspired
+                    interface. Join the
+                    community of digital power users.
+                </p>
+                <div class="digi_support">
+                    <div class="digi_totle">
+                        <h3>500+</h3>
+                        <p>AI Tools Indexed</p>
+                    </div>
+                    <div class="digi_totle">
+                        <h3>10K+</h3>
+                        <p>Active Users</p>
+                    </div>
+                </div>
+                <div class="but">
+                    <button><a href="#scr">Get Started</a> </button>
+
+                    <button class="noclr"> <a href="user_display.php">View Collection</a></button>
+                </div>
+            </div>
+
+            <div class="info">
+                <div class="in_names">
+                    <h3>$ init bookmarks.ai</h3>
+                    <h3>> Loading digital workspace...</h3>
+                    <h3>> Indexing AI tools...</h3>
+                    <h3>> Organizing bookmarks...</h3>
+                    <h3>> System ready</h3>
+                    <br>
+                    <h3>$ launch interface</h3>
+                    <h3> Welcome to BookmarksAI</h3>
+                    <h3>> Your digital command center</h3>
+                    <h3>> Ready for input...</h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="scr">
+            <div class="scr_page">
+                <p class="pa">🔍 Search tools:</p>
+                <h2 class="title"> Discover <span class="clr">AI</span> & <span class="clr">Web Tools</span></h2>
+                <p class="description">Search for the latest AI-powered tools, websites, and resources across various
+                    categories.
+                </p>
+
+                <div class="search-bar">
+                    <input type="text" id="search" placeholder="Search websites, tools, categories...">
+                    <button>🔍</button>
+                </div>
+                <div id="search-results" class="results-container"></div>
+
+
+                <div class="buttons">
+                    <a href="user_display.php" class="btn">View Websites</a>
+
+                </div>
+            </div>
+        </div>
+
+        <div id="featurs">
+            <h1>Featured <span class="clr">AI Tools</span> </h1>
+            <p>Discover cutting-edge AI tools that are reshaping the digital landscape</p>
+            <div class="ftr_itms">
+                <div class="item">
+                    <span class="fe_img">🤖</span>
+                    <span class="trend">Featured</span>
+                    <h1>ChatGPT</h1>
+                    <h3>Advanced language model for conversations and content generation</h3>
+                    <a href="">Explore Tool > </a>
+                </div>
+
+                <div class="item">
+                    <span class="fe_img">🤖</span>
+                    <span class="trend">Featured</span>
+                    <h1>ChatGPT</h1>
+                    <h3>Advanced language model for conversations and content generation</h3>
+                    <a href="">Explore Tool > </a>
+                </div>
+
+                <div class="item">
+                    <span class="fe_img">🤖</span>
+                    <span class="trend">Featured</span>
+                    <h1>ChatGPT</h1>
+                    <h3>Advanced language model for conversations and content generation</h3>
+                    <a href="">Explore Tool > </a>
+                </div>
+            </div>
+            <div class="but">
+                <button class="fe_btn"><a href="#scr">View All Tools</a> </button>
+            </div>
+        </div>
+
+        <div id="Updated">
+            <div class="Updated_sbrbe">
+                <h2>Stay Updated</h2>
+                <h1>Subscribe to the <span class="clr">Hacker's Digest</span> </h1>
+                <h3>Get weekly updates on new AI tools, curated bookmarks, and exclusive tech insights</h3>
+                <div class="search-bar">
+                    <input type="text" id="search" placeholder="Enter your email address">
+                    <button>Subscribe</button>
+                </div>
+                <div class="Up_true">
+                    <p>Weekly Digests</p>
+                    <p>Exclusive Content</p>
+                    <p>No Spam</p>
+                </div>
+                <p>By subscribing, you agree to our Privacy Policy and Terms of Service</p>
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <div class="display-container">
+        <h2>All <span class="clr">Websites</span> & <span class="clr">Tools</span></h2>
+        <p>Here you will find a list of essential websites and tools that can assist in various tasks, including web
+            development, coding, and productivity.</p>
+        <p>These resources have been carefully selected to provide value and enhance your workflow.</p>
+
+        <br>
+        <div id="website-list"></div>
+        <div id="data-container"></div>
+    </div>
+
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+            var openFormBtn = document.getElementById("openFormBtn");
+            var popupForm = document.getElementById("popupForm");
+            var closeFormBtn = document.getElementById("closeFormBtn");
+            var closeButton = document.querySelector(".close-btn");
+
+            // Open Form on Button Click
+            openFormBtn.addEventListener("click", function () {
+                popupForm.style.display = "flex"; // Show Popup
+            });
+
+            // Close Form on Clicking "No" Button
+            closeFormBtn.addEventListener("click", function () {
+                popupForm.style.display = "none";
+            });
+
+            // Close Form on Clicking "X" Button
+            closeButton.addEventListener("click", function () {
+                popupForm.style.display = "none";
+            });
+
+            // Close Form When Clicking Outside the Form
+            window.addEventListener("click", function (event) {
+                if (event.target === popupForm) {
+                    popupForm.style.display = "none";
+                }
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("fetch_data.php")
+                .then(response => response.json())
+                .then(data => {
+                    const container = document.getElementById("data-container");
+                    container.innerHTML = ""; // Purane data ko clear karna
+
+                    data.forEach(item => {
+                        const box = document.createElement("div");
+                        box.classList.add("website-box");
+
+                        box.innerHTML = `
+                    <img src="uploads/${item.image}" alt="Website Image">
+                    <h3>${item.site_name}</h3>
+                    <p>${item.description}</p>
+                    <a href="${item.site_link}" target="_blank">Visit Site</a>
+                    <br>
+                `;
+
+                        container.appendChild(box);
+                    });
+
+                    // Delete Button Click Event
+
+                })
+                .catch(error => console.error("Error fetching data:", error));
+        });
+
+
+        $(document).ready(function () {
+            $("#search").keyup(function () {
+                var query = $(this).val();
+                if (query.length > 1) {
+                    $.ajax({
+                        url: "search.php",
+                        method: "POST",
+                        data: { query: query },
+                        success: function (data) {
+                            $("#search-results").html(data);
+                        }
+                    });
+                } else {
+                    $("#search-results").html("");
+                }
+            });
+        });
+        function fetchCategory(category) {
+            let url = "fetch_data.php";
+            if (category !== "All") {
+                url += "?category=" + encodeURIComponent(category);
+            }
+
+            fetch(url)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("website-list").innerHTML = data;
+                })
+                .catch(error => console.error("Error:", error));
+        }
+
+        function fetchWebsites() {
+            fetch("fetch_data.php")
+                .then(response => response.text()) // Get response as HTML
+                .then(data => {
+                    document.getElementById("website-list").innerHTML = data; // Insert into container
+                })
+                .catch(error => console.error("Error:", error));
+        }
+
+        // Load websites when page loads
+        window.onload = fetchWebsites;
+        // Confirm delete function
+        function confirmDelete(id, siteName, category) {
+            let confirmAction = confirm(`Are you sure you want to delete "${siteName}" from category "${category}"?`);
+            if (confirmAction) {
+                deleteWebsite(id);
+            }
+        }
+
+        // Delete function
+        function deleteWebsite(id) {
+            fetch("delete.php", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: `id=${id}`
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        document.getElementById(`box-${id}`).remove();
+                        alert("Website deleted successfully!");
+                    } else {
+                        alert("Error deleting website.");
+                    }
+                })
+                .catch(error => console.error("Error:", error));
+        }
+
+
+
+
+
+    </script>
+    <script src="script.js"></script>
+    <script src="search.js"></script>
+</body>
+
+</html>
