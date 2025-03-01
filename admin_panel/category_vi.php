@@ -25,7 +25,8 @@ $result = $stmt->get_result();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo htmlspecialchars($category); ?> - Websites</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="catt.css">
 </head>
 <body>
 
@@ -41,15 +42,16 @@ $result = $stmt->get_result();
         
     </ul>
 </nav>
-
+ 
 <div class="container">
-    <h1>Websites in "<?php echo htmlspecialchars($category); ?>"</h1>
-    <div class="website-list">
+     <h1>Websites in "<?php echo htmlspecialchars($category); ?>"</h1>
+   <p>Explore our organized collection of tools and resources</p>
+     <div class="website-list">
         <?php
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 echo "<div class='website-box'>
-                        <img src='uploads/{$row["image"]}' alt='Website Image'>
+                         <img src='" . $row['logo'] . "' alt='Website Logo' class='website-logo'>
                         <h3>{$row["site_name"]}</h3>
                         <p>{$row["description"]}</p>
                         <a href='{$row["site_link"]}' target='_blank'>Visit Site</a>

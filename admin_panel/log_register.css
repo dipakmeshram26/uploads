@@ -127,6 +127,7 @@ h2 {
 
 .login-form input:focus {
   border-color: #00ff85;
+  background-color: #1d1f24;
   box-shadow: 0 0 8px rgba(0, 255, 133, 0.5);
 }
 

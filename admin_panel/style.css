@@ -14,6 +14,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  justify-content: c;
   background: #1f1f1f;
   padding: 15px 20px;
   color: white;
@@ -47,6 +48,7 @@ body {
   list-style: none;
   display: flex;
   gap: 20px;
+  align-items: center;
 }
 
 .nav-links li {

@@ -12,10 +12,14 @@ if ($conn->connect_error) {
 
 if (isset($_POST["query"])) {
     $search = $conn->real_escape_string($_POST["query"]);
-    $sql = "SELECT * FROM websites WHERE 
+ 
+ 
+     // Fetch only public websites
+    $sql = "SELECT * FROM websites WHERE visibility='public' AND (
             site_name LIKE '%$search%' OR 
             description LIKE '%$search%' OR 
-            category LIKE '%$search%'";
+            category LIKE '%$search%'
+        )";
 
     $result = $conn->query($sql);
 
@@ -27,6 +31,7 @@ if (isset($_POST["query"])) {
             echo "<h3><a href='" . $row["site_link"] . "' target='_blank'>" . $row["site_name"] . "</a></h3>";
             echo "<p>" . $row["description"] . "</p>";
             echo "<span class='category'>" . $row["category"] . "</span>";
+             echo "<a href='" . htmlspecialchars($row['site_link']) . "' target='_blank'>Visit Website</a>";
             echo "</div>";
         }
         echo "</div>";

@@ -85,3 +85,50 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+function toggleVisibility(id) {
+    fetch('toggle_visibility.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: 'id=' + id
+    })
+        .then(response => response.text())
+        .then(data => {
+            if (data.trim() === "success") {
+                location.reload(); // Refresh to update status
+            } else {
+                alert("Failed to update visibility.");
+            }
+        })
+        .catch(error => console.error('Error:', error));
+}
+
+
+// Open the Edit form and populate it with the data
+function openEditForm(id) {
+    // Fetch data from the server for the selected website
+    fetch('get_website_data.php?id=' + id)
+        .then(response => response.json())
+        .then(data => {
+            // Populate the form fields with the data
+            document.getElementById('edit_id').value = data.id;
+            document.getElementById('edit_site_name').value = data.site_name;
+            document.getElementById('edit_description').value = data.description;
+            document.getElementById('edit_site_link').value = data.site_link;
+            document.getElementById('edit_category').value = data.category;
+
+            // Set the visibility radio buttons based on the value
+            if (data.visibility === 'public') {
+                document.getElementById('public').checked = true;
+            } else {
+                document.getElementById('private').checked = true;
+            }
+
+            // Show the form
+            document.getElementById('editPopupForm').style.display = 'block';
+        });
+}
+
+// Close the Edit form
+function closeEditForm() {
+    document.getElementById('editPopupForm').style.display = 'none';
+}

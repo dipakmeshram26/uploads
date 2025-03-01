@@ -56,6 +56,7 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
 
 
 
+
 document.addEventListener("DOMContentLoaded", function () {
     var openFormBtn = document.getElementById("openFormBtn");
     var popupForm = document.getElementById("popupForm");

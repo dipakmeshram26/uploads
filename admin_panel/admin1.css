@@ -61,7 +61,7 @@ body {
   font-size: 18px;
   padding: 8px 12px;
   transition: 0.3s;
-  border: 1px solid rgb(2, 66, 48);
+  border: 1px solid rgb(6, 30, 24);
 }
 
 .nav-links a:hover {
@@ -289,29 +289,18 @@ body {
   margin: 10px;
   transition: 0.3s;
 }
-.submit {
-  padding: 10px;
-  background: #28a745;
-  color: white;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-  width: 30vh;
-}
-.submit:hover {
-  background: #218838;
-}
 
 .btn {
   display: inline-block;
   padding: 10px 20px;
   font-size: 15px;
   color: white;
-  background: #177504;
+  background: #17750447;
   text-decoration: none;
   border-radius: 3px;
   margin: 11px;
   transition: 0.3s;
+  box-shadow: 0 0 8px rgb(15 145 12 / 79%);
 }
 
 .btn:hover {
@@ -326,23 +315,8 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
 }
-h2 {
+.container h2 {
   text-align: center;
-}
-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-label {
-  margin-top: 10px;
-}
-input,
-textarea {
-  padding: 10px;
-  margin-top: 5px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
 }
 
 .view-submissions,
@@ -401,7 +375,7 @@ textarea {
 }
 
 .website-box:hover {
-  box-shadow: 0 4px 12px rgba(5, 7, 35, 0.943);
+  box-shadow: 0 4px 12px rgba(6, 232, 44, 0.943);
 }
 .website-box img {
   height: 8vh;

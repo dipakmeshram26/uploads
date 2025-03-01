@@ -20,15 +20,15 @@ $result = $conn->query($sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Categories</title>
-    <link rel="stylesheet" href="styles.css">
-     <link rel="stylesheet" href="categories.css">
-<link rel="stylesheet" href="catt.css">
+    <link rel="stylesheet" href="style.css">
+     <!-- <link rel="stylesheet" href="categories.css"> -->
+    <link rel="stylesheet" href="catt.css">
     </head>
 <body>
     <nav class="navbar">
         <div class="logo">
             <a href="home.php"><img src="site logo.png" alt=""></a>
-        <h2>Admin Panel</h2>
+         
     </div>
          
           <ul class="nav-links">
@@ -40,8 +40,11 @@ $result = $conn->query($sql);
         </ul>
              
     </nav>
+    <div id="cat">
+     <h1>Categories</h1>
+    <p>Explore our organized collection of tools and resources</p>
     <div class="categories-container">
-        <h1>Categories</h1>
+        
         <?php
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
@@ -54,6 +57,7 @@ $result = $conn->query($sql);
             echo "<p>No categories found.</p>";
         }
         ?>
+    </div>
     </div>
 </body>
 </html>

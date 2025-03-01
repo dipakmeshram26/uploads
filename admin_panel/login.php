@@ -17,9 +17,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $admin_username = $_POST["username"];
     $admin_password = $_POST["password"];
 
-    // Fetch the user data based on username
-    $sql = "SELECT * FROM admin WHERE username='$admin_username'";
-    $result = $conn->query($sql);
+     // Use prepared statements to avoid SQL injection
+    $sql = $conn->prepare("SELECT * FROM admin WHERE username = ?");
+    $sql->bind_param("s", $admin_username); // 's' means string
+    $sql->execute();
+    $result = $sql->get_result();
 
     if ($result->num_rows == 1) {
         $row = $result->fetch_assoc();
@@ -28,6 +30,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (password_verify($admin_password, $row["password"])) {
             $_SESSION['admin_logged_in'] = true;
             $_SESSION['admin_username'] = $admin_username;
+             $_SESSION['user_role'] = 'admin'; // Set user role to admin
+
+               $_SESSION['login_message'] = "Login Successful! Welcome " . $_SESSION['admin_username']; // Set message
+
             header("Location: dashboard.php");
             exit();
         } else {
@@ -57,12 +63,14 @@ $conn->close();
     <nav class="navbar">
         <div class="logo">
             <a href=""> <img src="site logo.png" alt="">Hacker<span class="red">AI</span></a>
+       
         </div>
 
         <ul class="nav-links">
             <li><a href="../index.html">Home</a></li>
 
             <li><a href="about.html">About</a></li>
+            <li><a href="../subadmin_panel/login_subadmin.php">Sub-Admin Login</a></li>
 
 
         </ul>

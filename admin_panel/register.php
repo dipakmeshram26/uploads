@@ -12,12 +12,13 @@ if ($conn->connect_error) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+     $admin_name = $_POST["name"]; // New field for name
     $admin_username = $_POST["username"];
     $admin_password = $_POST["password"];
     $hashed_password = password_hash($admin_password, PASSWORD_DEFAULT);  // Hash the password
 
-    // Insert the new admin into the database with the hashed password
-    $sql = "INSERT INTO admin (username, password) VALUES ('$admin_username', '$hashed_password')";
+    // Insert the new admin into the database with the hashed password and name
+    $sql = "INSERT INTO admin (name, username, password) VALUES ('$admin_name', '$admin_username', '$hashed_password')";
     
     if ($conn->query($sql) === TRUE) {
         echo "New record created successfully!";
@@ -42,16 +43,19 @@ $conn->close();
 </head>
 
 <body>
-    <div id="logid">
-        <div class="form-container" autocomplete="off" >
+     <div id="logid">
+        <div class="form-container" autocomplete="off">
             <h2>Admin Registration</h2>
             <form method="POST" class="register-form" autocomplete="off">
                 <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your full name" required autocomplete="off">
+                </div>
+                <div class="form-group">
                     <label for="username">Username</label>
-                    <input type="text" id="username" name="username" placeholder="Enter your username" required
-                        autocomplete="off>
-            </div>
-            <div class=" form-group">
+                    <input type="text" id="username" name="username" placeholder="Enter your username" required autocomplete="off">
+                </div>
+                <div class="form-group">
                     <label for="password">Password</label>
                     <input type="password" id="password" name="password" placeholder="Enter your password" required>
                 </div>
