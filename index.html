@@ -9,16 +9,25 @@
     <!-- <link rel="stylesheet" href="popup.css"> -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="adminpopup.css">
+    <link rel="stylesheet" href="css_mobile/mobile.css" media="(max-width: 768px)">
 
 </head>
 
 <body>
 
     <!-- Navbar Start -->
+
+
+
     <nav class="navbar">
         <div class="logo">
             <a href="home.php"><img src="site logo.png" alt=""></a>
             <h2>ToolsHub</h2>
+        </div>
+
+        <div class="hamburger" onclick="toggleMenu()">
+            <span class="open">&#9776;</span> <!-- ☰ -->
+            <span class="close">&#10006;</span> <!-- ✖ -->
         </div>
 
         <ul class="nav-links">
@@ -28,6 +37,7 @@
             <li><a href="../uploads/admin_panel/login.php">Log In</a></li> <!-- Open Login Popup -->
 
         </ul>
+
     </nav>
 
 

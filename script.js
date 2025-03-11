@@ -1,5 +1,27 @@
 
 
+function toggleMenu() {
+    let navLinks = document.querySelector(".nav-links");
+    let openIcon = document.querySelector(".hamburger .open");
+    let closeIcon = document.querySelector(".hamburger .close");
+
+
+    navLinks.classList.toggle("open-menu");
+
+
+
+    if (navLinks.classList.contains("open-menu")) {
+        openIcon.style.display = "none";  // Hide ☰
+        closeIcon.style.display = "block"; // Show ✖
+
+
+    } else {
+        openIcon.style.display = "block";  // Show ☰
+        closeIcon.style.display = "none"; // Hide ✖
+    }
+}
+
+
 // Get the popup and buttons
 const loginBtn = document.getElementById('loginBtn');
 const loginPopup = document.getElementById('loginPopup'); // Using ID

@@ -31,6 +31,16 @@ body {
   height: 5vh;
 }
 
+/* Hamburger Menu */
+.navbar .hamburger {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+.hamburger .close {
+  display: none;
+}
+
 .nav-links {
   list-style: none;
   display: flex;
@@ -204,6 +214,7 @@ body {
 }
 #digiworld .digi_support {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
 }
 
@@ -687,7 +698,7 @@ button:hover {
   align-items: center;
   justify-content: center;
   width: 98%;
-  max-width: 1200px;
+  /* max-width: 1200px; */
   margin: 20px auto;
   color: white;
   padding: 20px;
