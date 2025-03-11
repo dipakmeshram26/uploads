@@ -26,6 +26,7 @@ if (!$result) {
 // Check if data exists
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
+        
         echo "<div class='website-box'>";
         echo "<img src='" . htmlspecialchars($row['logo']) . "' alt='Website Logo' class='website-logo'>";
         echo "<h3>" . htmlspecialchars($row['site_name']) . "</h3>";
@@ -43,7 +44,7 @@ if ($result->num_rows > 0) {
         echo "<a href='" . htmlspecialchars($row['site_link']) . "' target='_blank'>Visit Website</a>";
 
         // Edit button
-        echo "<button onclick='openEditForm(" . $row['id'] . ")' class='edit-btn'>Edit</button>";
+        echo "<button onclick='openEditForm(" . $row['id'] . ")' class='edit-btn'><img src='edit-btn.png'></button>";
 
         // Delete button
         echo "<button onclick='deleteWeb(" . $row['id'] . ")' class='delete-btn'>Delete</button>";
@@ -52,7 +53,7 @@ if ($result->num_rows > 0) {
         echo "<button onclick='toggleVisibility(" . json_encode($row['id']) . ")' class='toggle-btn'>" . ucfirst($row['visibility']) . "</button>";
 
         // Visibility status
-        echo "<p><strong>Visibility:</strong> " . ucfirst($row['visibility']) . "</p>";
+        echo "<div class = 'visib'> " . ucfirst($row['visibility']) . "</div>";
 
         echo "</div>";
     }

@@ -24,8 +24,10 @@ if ($result->num_rows > 0) {
             <img src='<?php echo htmlspecialchars($row['logo']); ?>' alt='Website Logo' class='website-logo'>
             <h3><?php echo htmlspecialchars($row['site_name']); ?></h3>
             <p><?php echo htmlspecialchars($row['description']); ?></p>
-            <p><strong>Category:</strong> <?php echo htmlspecialchars($row['category']); ?></p>
-            <a href='<?php echo htmlspecialchars($row['site_link']); ?>' target='_blank'>Visit Website</a>
+            <!-- <p><strong>Category:</strong> <?php echo htmlspecialchars($row['category']); ?></p> -->
+            <div class="vst-btn"> 
+                 <a href='<?php echo htmlspecialchars($row['site_link']); ?>' target='_blank'>Visit Website</a>
+            </div>
         </div>
         <?php
     }

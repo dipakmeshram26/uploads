@@ -23,6 +23,7 @@ if (!isset($_SESSION['admin_logged_in'])) {
     <nav class="navbar">
         <div class="logo">
             <a href="home.php"><img src="site logo.png" alt=""></a>
+             
         </div>
         <h2>Admin <span class="red">Panel</span> </h2>
         <ul class="nav-links">
@@ -88,8 +89,8 @@ if (!isset($_SESSION['admin_logged_in'])) {
 
                       <!-- Public / Private Radio Buttons -->
                     <label>Visibility:</label>
-                    <input type="radio" name="visibility" value="public" checked> Public
-                    <input type="radio" name="visibility" value="private"> Private
+                    <input type="radio" name="visibility" value="public" onclick="changeVisibility()" checked> Public
+                    <input type="radio" name="visibility" value="private" onclick="changeVisibility()"> Private
 
                     <div id="sub-clos">
                     <button type="submit" class="submit" >Submit</button>
@@ -137,12 +138,11 @@ if (!isset($_SESSION['admin_logged_in'])) {
         </div>
         <div id="data-container"></div>
 
-
-
-
-
-
         <div class="website-boxes-container">
+
+
+
+
             <?php
             $conn = new mysqli("localhost", "root", "", "website_db");
             $result = $conn->query("SELECT * FROM websites");
@@ -155,6 +155,7 @@ if (!isset($_SESSION['admin_logged_in'])) {
                         </div>
                         <div class='box-body'>
                             <p>ID: {$row['id']}</p>
+                            
                             <a href='delete_website.php?id={$row['id']}' class='delete-link'>Delete</a>
                         </div>
                     </div>";
@@ -219,10 +220,15 @@ if (!isset($_SESSION['admin_logged_in'])) {
                         } else {
                             alert("Error: " + data.message);
                         }
+                        location.reload();
                     })
                     .catch(error => console.error("Error deleting data:", error));
             }
         }
+
+
+ 
+
 
 
 

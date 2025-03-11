@@ -132,3 +132,4 @@ function openEditForm(id) {
 function closeEditForm() {
     document.getElementById('editPopupForm').style.display = 'none';
 }
+

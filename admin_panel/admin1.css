@@ -375,8 +375,9 @@ body {
 }
 
 .website-box:hover {
-  box-shadow: 0 4px 12px rgba(6, 232, 44, 0.943);
+  box-shadow: 0 0 12px rgba(185, 252, 196, 0.943);
 }
+
 .website-box img {
   height: 8vh;
   padding: 5px;
@@ -427,6 +428,23 @@ body {
   background-color: rgb(22, 114, 4);
 }
 
+.website-box .edit-btn {
+  background-color: transparent;
+  display: inline-flex;
+  box-shadow: none;
+  padding: none;
+  border: none;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+.website-box .edit-btn img {
+  background-color: transparent;
+  color: none;
+  height: 34px;
+  cursor: pointer;
+  box-shadow: none;
+}
 .website-box .delete-btn {
   background-color: rgb(188, 15, 15);
   color: white;
@@ -441,6 +459,25 @@ body {
 
 .website-box .delete-btn:hover {
   background-color: darkred;
+}
+
+.website-box .visib {
+  color: #007bff;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+button.toggle-btn {
+  background-color: rgba(6, 44, 148, 0.753);
+  color: white;
+  padding: 8px 10px;
+  margin-top: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  width: 20vh;
+  text-align: center;
 }
 
 /* User Submitted Websites dusrya page vr */
@@ -461,7 +498,6 @@ body {
   display: flex;
   flex-direction: row; /* Row format */
   align-items: center;
-  background: #fff;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   padding: 15px;
@@ -552,7 +588,6 @@ body {
     width: 80%;
     margin: 30px auto;
     padding: 20px;
-    background: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
   }
@@ -570,7 +605,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: white;
+
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     padding: 15px;
@@ -630,7 +665,7 @@ body {
   #website-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 35px;
   }
 
   .site-card {

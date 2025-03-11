@@ -31,7 +31,7 @@ $result = $conn->query($sql);
         <div id="website-list">
             <?php while ($row = $result->fetch_assoc()) { ?>
                 <div class="site-card">
-                    <img src="uploads/<?php echo $row['image']; ?>" alt="Site Image">
+                   <?php   echo "<img src='" . htmlspecialchars($row['logo']) . "' alt='Website Logo' class='website-logo'>";?>
                     <div class="site-info">
                         <h3><?php echo $row['site_name']; ?></h3>
                         <p><?php echo $row['description']; ?></p>

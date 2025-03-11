@@ -168,7 +168,7 @@ h2 {
 }
 
 /* Custom animations for the hacker vibe */
-@keyframes glow {
+/* @keyframes glow {
   0% {
     text-shadow: 0 0 5px #00ff41, 0 0 10px #00ff41, 0 0 15px #00ff41;
   }
@@ -182,4 +182,4 @@ h2 {
 
 h2 {
   animation: glow 1.5s ease-in-out infinite;
-}
+} */
