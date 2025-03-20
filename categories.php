@@ -38,10 +38,12 @@ $result = $conn->query($sql);
 
         </ul>
     </nav>
-    <div class="categories-container">
+    <div class="heading"> 
         <h1>Browse by <span class = "head" >Categories</span>  </h1>
         <p>Explore our organized collection of tools and resources</p>
-        
+        </div>
+    <div class="categories-container">
+         
         <?php
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {

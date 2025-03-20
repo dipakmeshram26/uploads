@@ -93,6 +93,7 @@ body {
   align-items: center;
   width: 100%;
   max-width: 90vh;
+  margin-top: 10vh;
 }
 
 .clr {
@@ -219,7 +220,7 @@ body {
 }
 
 #digiworld .digi_support .digi_totle {
-  width: 40vh;
+  width: 30vh;
   background-color: #1d1c1c;
   border-radius: 10px;
   flex-wrap: wrap;
@@ -271,8 +272,8 @@ body {
   background-color: #1d1c1cb8;
   padding: 25px;
   border-radius: 10px;
-  height: 32vh;
-  width: 70vh;
+  height: 50vh;
+  width: 40vh;
   overflow: hidden;
 }
 
@@ -281,6 +282,12 @@ body {
   font-size: 14px;
   line-height: 20px;
   font-weight: 400;
+}
+
+@media screen and (max-width: 1100px) {
+  .info {
+    display: none;
+  }
 }
 
 /* Search Bar Styles */
@@ -292,12 +299,14 @@ body {
   /* background: #1e1e1edf; */
   border-radius: 12px;
   margin-top: 45px;
+  margin-bottom: 20vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  text-align: center;
   position: relative;
-  width: 100%;
-  max-width: 100vh;
+  /* width: 100%;
+  max-width: 125vh; */
   height: inherit;
   /* box-shadow: 0px 4px 15px rgba(0, 255, 128, 0.4); */
 }
@@ -441,19 +450,9 @@ body {
   margin-top: 4px;
 }
 
-/* Responsive Design */
-@media screen and (max-width: 768px) {
-  .search-bar {
-    width: 90%;
-  }
-  .search-item {
-    width: 25vh;
-  }
-}
-
-.buttons {
+/* .buttons {
   margin-top: 20px;
-}
+} */
 
 .btn {
   display: inline-block;
@@ -610,13 +609,13 @@ button:hover {
 }
 
 #Updated {
-  height: 59vh;
+  /* height: 59vh; */
   width: 100%;
-  max-width: 90vh;
+  /* max-width: 90vh; */
   margin-top: 10vh;
   background-color: #313231d2;
-  border-radius: 10px;
-  padding: 20px;
+  border-radius: 4px;
+  /* padding: 20px; */
 }
 
 #Updated .Updated_sbrbe {
@@ -697,11 +696,11 @@ button:hover {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 98%;
-  /* max-width: 1200px; */
+  /* width: 98%;
+  max-width: 1200px; */
   margin: 20px auto;
   color: white;
-  padding: 20px;
+  /* padding: 20px; */
   background-color: #000000;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
@@ -854,3 +853,9 @@ button:hover {
 .category-list li:hover {
   background: #45a049;
 }
+
+/* @media screen and (max-width: 1200px)
+@media screen and (max-width: 1200px)
+@media screen and (max-width: 1200px)
+@media screen and (max-width: 1200px)
+@media screen and (max-width: 1200px) */
