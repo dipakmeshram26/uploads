@@ -64,7 +64,7 @@ if (!$result) {
     <div class="logo">
         <a href="home.php"><img src="site logo.png" alt="Site Logo"></a>
     </div>
-    <h2>Sub-Admin <span class="red">Panel</span></h2>
+    <!-- <h2>Sub-Admin <span class="red">Panel</span></h2> -->
     <ul class="nav-links">
         <li><a href="subadmin_dashboard.php">Dashboard</a></li>
         <li><a href="submit_website.php">Submit Website</a></li>
