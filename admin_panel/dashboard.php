@@ -22,21 +22,25 @@ if (!isset($_SESSION['admin_logged_in'])) {
 <body>
     <nav class="navbar">
         <div class="logo">
-            <a href="home.php"><img src="site logo.png" alt=""></a>
+            <a href="dashboard.php"><img src="site logo.png" alt=""></a>
              
         </div>
         <h2>Admin <span class="red">Panel</span> </h2>
         <ul class="nav-links">
             <li><a href="dashboard.php">Dashboard</a></li>
             <li><a href="categories.php">Categories</a></li> <!-- Link to categories page -->
-            <li><a href="about.html">About</a></li>
             <li><a href="register.php">Register</a></li> <!-- Open Login Popup -->
-            <li><a href="logout.php">Logout</a></li>
-
-           <li><a href="../subadmin_panel/register_subadmin.php">Register Sub-Admin</a></li>
-<li><a href="../subadmin_panel/login_subadmin.php">Sub-Admin Login</a></li>
-
-      
+            
+           
+            <!-- Sub-Admin Dropdown Button -->
+            <li class="dropdown">
+            <a href="#" class="dropbtn">Sub-Admin</a>
+            <div class="dropdown-content">
+                <a href="../subadmin_panel/register_subadmin.php">Register Sub-Admin</a>
+                <a href="../subadmin_panel/login_subadmin.php">Sub-Admin Login</a>
+            </div>
+            </li>
+             <li><a href="logout.php">Logout</a></li>
         </ul>
 
     </nav>
@@ -47,8 +51,6 @@ if (!isset($_SESSION['admin_logged_in'])) {
             <h3 class="wlcm">Hello,
             <?php echo $_SESSION['admin_username']; ?>!
         </h3>
-        
-
         
         <h1>Welcome to Our Community</h1>
             <h4>Manage Your Tools</h4>
@@ -88,10 +90,11 @@ if (!isset($_SESSION['admin_logged_in'])) {
                     <input type="text" name="category" placeholder="Enter Tool Categary" required>
 
                       <!-- Public / Private Radio Buttons -->
+                       <div class="redio-btns"> 
                     <label>Visibility:</label>
                     <input type="radio" name="visibility" value="public" onclick="changeVisibility()" checked> Public
                     <input type="radio" name="visibility" value="private" onclick="changeVisibility()"> Private
-
+                     </div>
                     <div id="sub-clos">
                     <button type="submit" class="submit" >Submit</button>
                     <button type="button" id="closeFormBtn">x</button>
@@ -120,10 +123,13 @@ if (!isset($_SESSION['admin_logged_in'])) {
             <label>Category:</label>
             <input type="text" id="edit_category" name="category" required>
 
-            <label>Visibility:</label>
-            <input type="radio" name="visibility" value="public" id="public" required> Public
-            <input type="radio" name="visibility" value="private" id="private" required> Private
-
+            <div class="visibility-btns"> 
+               <label>Visibility:</label>
+              <div class="redio-btns"> 
+                 <input class="size" type="radio" name="visibility" value="public" id="public" required> Public
+                 <input class="size" type="radio" name="visibility" value="private" id="private" required> Private
+              </div>
+            </div>
             <button type="submit" class="submit">Update</button>
         </form>
     </div>
@@ -138,30 +144,26 @@ if (!isset($_SESSION['admin_logged_in'])) {
         </div>
         <div id="data-container"></div>
 
-        <div class="website-boxes-container">
-
-
-
-
+        <!-- <div class="website-boxes-container"> -->
             <?php
-            $conn = new mysqli("localhost", "root", "", "website_db");
-            $result = $conn->query("SELECT * FROM websites");
+            // $conn = new mysqli("localhost", "root", "", "website_db");
+            // $result = $conn->query("SELECT * FROM websites");
 
-            while ($row = $result->fetch_assoc()) {
-                echo "<div class='website-box'>
-                        <div class='box-header'>
-                            <h4>{$row['site_name']}</h4>
-                            <p>Category: {$row['category']}</p>
-                        </div>
-                        <div class='box-body'>
-                            <p>ID: {$row['id']}</p>
+            // while ($row = $result->fetch_assoc()) {
+            //     echo "<div class='website-box'>
+            //             <div class='box-header'>
+            //                 <h4>{$row['site_name']}</h4>
+            //                 <p>Category: {$row['category']}</p>
+            //             </div>
+            //             <div class='box-body'>
+            //                 <p>ID: {$row['id']}</p>
                             
-                            <a href='delete_website.php?id={$row['id']}' class='delete-link'>Delete</a>
-                        </div>
-                    </div>";
-            }
+            //                 <a href='delete_website.php?id={$row['id']}' class='delete-link'>Delete</a>
+            //             </div>
+            //         </div>";
+            // }
             ?>
-        </div>
+        <!-- </div> -->
     </div>
     <script>
 
@@ -228,10 +230,6 @@ if (!isset($_SESSION['admin_logged_in'])) {
 
 
  
-
-
-
-
 
 
         $(document).ready(function () {

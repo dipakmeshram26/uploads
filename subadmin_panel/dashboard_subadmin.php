@@ -63,10 +63,11 @@ if (!$result) {
 <nav class="navbar">
     <div class="logo">
         <a href="home.php"><img src="site logo.png" alt="Site Logo"></a>
+        <!-- <link rel="stylesheet" href="../styles.css"> -->
     </div>
     <!-- <h2>Sub-Admin <span class="red">Panel</span></h2> -->
     <ul class="nav-links">
-        <li><a href="subadmin_dashboard.php">Dashboard</a></li>
+        <li><a href=" dashboard_subadmin.php">Dashboard</a></li>
         <li><a href="submit_website.php">Submit Website</a></li>
         <li><a href="view_websites.php">View Websites</a></li>
         <li><a href="logout.php">Logout</a></li>
@@ -112,9 +113,11 @@ if (!$result) {
                 <input type="text" name="category" placeholder="Enter Tool Category" required>
 
                 <!-- Public / Private Radio Buttons -->
-                <label>Visibility:</label>
-                <input type="radio" name="visibility" value="public" checked> Public
-                <input type="radio" name="visibility" value="private"> Private
+               <div class="redio-btns"> 
+                    <label>Visibility:</label>
+                    <input type="radio" name="visibility" value="public" onclick="changeVisibility()" checked> Public
+                    <input type="radio" name="visibility" value="private" onclick="changeVisibility()"> Private
+                     </div>
 
                 <div id="sub-clos">
                     <button type="submit" class="submit">Submit</button>
@@ -124,41 +127,11 @@ if (!$result) {
         </div>
     </div>
 
-    <!-- Your Submitted Websites Table -->
-    <h3>Your Websites</h3>
-    <table border="1" cellpadding="8" cellspacing="0">
-        <tr>
-            <th>Website Name</th>
-            <th>Category</th>
-            <th>Status</th>
-            <th>Visibility</th>
-                <th>Submitted By</th> <!-- Sub-admin Name Column -->
-            <th>Actions</th>
-        </tr>
-        <?php
-        if ($result->num_rows > 0) {
-            while($row = $result->fetch_assoc()) {
-                echo "<tr>";
-                echo "<td>" . $row['site_name'] . "</td>";
-                echo "<td>" . $row['category'] . "</td>";
-                echo "<td>" . ($row['visibility'] == 'private' ? 'Private' : 'Public') . "</td>";
-                echo "<td><button onclick='toggleVisibility(" . $row['id'] . ")'>" . ucfirst($row['visibility']) . "</button></td>";
-               
-                  // Display the sub-admin name
-                           echo "<td>" . htmlspecialchars($_SESSION['sub_admin_name']) . "</td>"; // Sub-admin Name
+  <div class="display-container">
+    <h2>Websites</h2>
+    <div id="website-list"></div> <!-- Websites display container -->
+</div>
 
-           
-                echo "<td>
-                        <a href='edit_website.php?id=" . $row['id'] . "'>Edit</a> | 
-                        <a href='delete_website.php?id=" . $row['id'] . "'>Delete</a>
-                      </td>";
-                echo "</tr>";
-            }
-        } else {
-            echo "<tr><td colspan='5'>No websites found.</td></tr>";
-        }
-        ?>
-    </table>
 </div>
 
 <script>
@@ -174,6 +147,157 @@ if (!$result) {
     document.querySelector('.close-btn').addEventListener('click', function() {
         document.getElementById('popupForm').style.display = 'none';
     });
+
+    document.addEventListener("DOMContentLoaded", function() {
+    fetchWebsites();
+});
+
+function fetchWebsites() {
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "fetch_data.php", true);
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            document.getElementById("website-list").innerHTML = xhr.responseText;
+        }
+    };
+    xhr.send();
+}
+
+// site delele buton work 
+// site delele buton work 
+// site delele buton work  
+
+ document.addEventListener("DOMContentLoaded", function () {
+            fetch("fetch_data.php")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("website-list").innerHTML = data;
+                })
+                .catch(error => console.error("Error fetching data:", error));
+        });
+
+        function deleteWeb(id) {
+            console.log("Deleting ID:", id); // 🛠️ Debugging: ID check करें
+
+            if (confirm("Are you sure you want to delete this website?")) {
+                fetch("./delete.php?id=" + id)
+                    .then(response => response.json()) // 🛠️ JSON format में parse करें
+                    .then(data => {
+                        // console.log("Response from delete.php:", data); // 🛠️ Debugging Response
+
+                        if (data.status === "success") {
+                            alert(data.message);
+                            document.getElementById("website-" + id).remove(); // UI से Remove करें
+                        } else {
+                            alert("Error: " + data.message);
+                        }
+                        location.reload();
+                    })
+                    .catch(error => console.error("Error deleting data:", error));
+            }
+        }
+
+
+        
+        $(document).ready(function () {
+            $("#search").keyup(function () {
+                var query = $(this).val();
+                if (query.length > 1) {
+                    $.ajax({
+                        url: "search.php",
+                        method: "POST",
+                        data: { query: query },
+                        success: function (data) {
+                            $("#search-results").html(data);
+                        }
+                    });
+                } else {
+                    $("#search-results").html("");
+                }
+            });
+        });
+        function fetchCategory(category) {
+            let url = "fetch_data.php";
+            if (category !== "All") {
+                url += "?category=" + encodeURIComponent(category);
+            }
+
+            fetch(url)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("website-list").innerHTML = data;
+                })
+                .catch(error => console.error("Error:", error));
+        }
+
+        function fetchWebsites() {
+            fetch("fetch_data.php")
+                .then(response => response.text()) // Get response as HTML
+                .then(data => {
+                    document.getElementById("website-list").innerHTML = data; // Insert into container
+                })
+                .catch(error => console.error("Error:", error));
+        }
+
+        // Load websites when page loads
+        window.onload = fetchWebsites;
+        // Confirm delete function
+        function confirmDelete(id, siteName, category) {
+            let confirmAction = confirm(`Are you sure you want to delete "${siteName}" from category "${category}"?`);
+            if (confirmAction) {
+                deleteWebsite(id);
+            }
+        }
+
+        function openEditForm(id) {
+    // Fetch data from the server for the selected website
+    fetch('get_website_data.php?id=' + id)
+        .then(response => response.json())
+        .then(data => {
+            // Populate the form fields with the data
+            document.getElementById('edit_id').value = data.id;
+            document.getElementById('edit_site_name').value = data.site_name;
+            document.getElementById('edit_description').value = data.description;
+            document.getElementById('edit_site_link').value = data.site_link;
+            document.getElementById('edit_category').value = data.category;
+
+            // Set the visibility radio buttons based on the value
+            if (data.visibility === 'public') {
+                document.getElementById('public').checked = true;
+            } else {
+                document.getElementById('private').checked = true;
+            }
+
+            // Show the form
+            document.getElementById('editPopupForm').style.display = 'block';
+        });
+}
+
+// Close the Edit form
+function closeEditForm() {
+    document.getElementById('editPopupForm').style.display = 'none';
+}
+
+        // Delete function
+        function deleteWebsite(id) {
+            fetch("delete.php", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: `id=${id}`
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        document.getElementById(`box-${id}`).remove();
+                        alert("Website deleted successfully!");
+                    } else {
+                        alert("Error deleting website.");
+                    }
+                })
+                .catch(error => console.error("Error:", error));
+        }
+
+
 </script>
 
 </body>

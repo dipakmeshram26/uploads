@@ -1,39 +1,29 @@
 <?php
-// Database connection
+session_start();
 $conn = new mysqli("localhost", "root", "", "website_db");
 
-// Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// SQL query to fetch website data without JOIN
-$sql = "SELECT id, site_name, description, site_link, logo, category, visibility, submitted_by FROM websites ORDER BY created_at DESC";
+// Sub-Admin Name Session से लीजिए
+$sub_admin_name = $_SESSION['sub_admin_name']; 
 
-// Run the query
+$sql = "SELECT * FROM websites WHERE submitted_by = '$sub_admin_name' ORDER BY created_at DESC";
 $result = $conn->query($sql);
 
-// Debug: Check if query ran successfully
-if (!$result) {
-    die("Query failed: " . $conn->error);
-}
-
-// Check if data exists
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         echo "<div class='website-box'>";
-        echo "<img src='" . htmlspecialchars($row['logo']) . "' alt='Website Logo' class='website-logo'>";
+         echo "<img src='" . htmlspecialchars($row['logo']) . "' alt='Website Logo' class='website-logo'>";
         echo "<h3>" . htmlspecialchars($row['site_name']) . "</h3>";
         echo "<p>" . htmlspecialchars($row['description']) . "</p>";
         echo "<p><strong>Category:</strong> " . htmlspecialchars($row['category']) . "</p>";
+        echo "<p><strong>Status:</strong> " . ($row['visibility'] == 'private' ? 'Private' : 'Public') . "</p>";
         
-        // Directly displaying 'submitted_by' as it contains name
-        if (!empty($row['submitted_by'])) {
-            echo "<p><strong>Submitted By:</strong> " . htmlspecialchars($row['submitted_by']) . "</p>";
-        } else {
-            echo "<p><strong>Submitted By:</strong> Admin</p>";
-        }
         
+        echo "<p><strong>Submitted By:</strong> " . htmlspecialchars($row['submitted_by']) . "</p>";
+      
         echo "<a href='" . htmlspecialchars($row['site_link']) . "' target='_blank'>Visit Website</a>";
         
         // Edit button
@@ -53,9 +43,7 @@ if ($result->num_rows > 0) {
         echo "</div>";
     }
 } else {
-    echo "<p>No websites found.</p>";
+    echo "<p class='no-websites'>No websites found.</p>";
 }
-
-// Close connection
 $conn->close();
 ?>

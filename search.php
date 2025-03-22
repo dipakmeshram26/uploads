@@ -31,7 +31,7 @@ if (isset($_POST["query"])) {
             echo "<h3><a href='" . $row["site_link"] . "' target='_blank'>" . $row["site_name"] . "</a></h3>";
             echo "<p>" . $row["description"] . "</p>";
             echo "<span class='category'>" . $row["category"] . "</span>";
-             echo "<a href='" . htmlspecialchars($row['site_link']) . "' target='_blank'>Visit Website</a>";
+             echo "<a class='s-link-btn' href='" . htmlspecialchars($row['site_link']) . "' target='_blank'>Visit Website</a>";
             echo "</div>";
         }
         echo "</div>";

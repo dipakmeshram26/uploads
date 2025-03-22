@@ -353,7 +353,7 @@ body {
   align-self: center;
   gap: 10px;
   margin-top: 10px;
-  margin-bottom: 5vh;
+  margin-bottom: 2vh;
   padding: 2vh;
 }
 
@@ -401,8 +401,10 @@ body {
 }
 
 .search-item {
-  background: #2a2a2a;
+  background: #0e0d0d;
   padding: 7px;
+  box-shadow: 0 0 6px darkgreen;
+  margin: 5px;
   margin: 5px;
   border-radius: 5px;
   cursor: pointer;
@@ -412,15 +414,13 @@ body {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  align-content: center;
-  justify-content: center;
-  text-align: center;
+  overflow: hidden;
 }
 
 .search-item img {
-  height: 11vh;
-
+  height: auto;
   border-radius: 5px;
+  width: 50px;
 }
 
 .search-item h3 a {
@@ -437,6 +437,20 @@ body {
   height: 20px;
   overflow: hidden;
 }
+.search-item .s-link-btn {
+  padding: 5px 7px;
+  box-shadow: 0 0 5px #028613;
+  margin-top: 7px;
+  color: green;
+  width: 14vh;
+  text-decoration: none;
+  font-size: 15px;
+  border-radius: 4px;
+}
+.search-item .s-link-btn:hover {
+  box-shadow: 0 0 15px #097b18;
+  color: rgb(191, 255, 191);
+}
 
 .search-item:hover {
   background: #3a3a3a;
@@ -444,8 +458,8 @@ body {
 
 /* Category Labels */
 .search-item .category {
-  font-size: 12px;
-  color: rgb(224, 224, 224);
+  font-size: 11px;
+  color: rgb(81 87 71);
   display: block;
   margin-top: 4px;
 }
@@ -458,7 +472,7 @@ body {
   display: inline-block;
   position: absolute;
   right: 40%;
-  bottom: 6px;
+  bottom: -55px;
   padding: 10px 23px;
   font-size: 18px;
   color: white;
@@ -612,7 +626,7 @@ button:hover {
   /* height: 59vh; */
   width: 100%;
   /* max-width: 90vh; */
-  margin-top: 10vh;
+  /* margin-top: 10vh; */
   background-color: #313231d2;
   border-radius: 4px;
   /* padding: 20px; */
@@ -624,6 +638,7 @@ button:hover {
   flex-direction: column;
   align-items: center;
   padding: 20px;
+  height: 70vh;
 }
 #Updated .Updated_sbrbe h2 {
   color: #64cf72;
@@ -710,6 +725,7 @@ button:hover {
   font-size: 25px;
   font-weight: 400;
   margin: 20px 10px;
+  margin-top: 14vh;
 }
 
 .display-container p {
@@ -740,7 +756,7 @@ button:hover {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   font-family: "Arial", sans-serif;
   position: relative;
-  width: 40vh;
+  width: 30vh;
   height: 30vh;
   margin: 10px;
   padding: 20px;
@@ -753,7 +769,7 @@ button:hover {
   transform: translateY(-5px);
 }
 .website-box img {
-  width: 70px;
+  width: 50px;
   height: auto;
   margin-bottom: 15px;
   border-radius: 50%;
@@ -775,7 +791,7 @@ button:hover {
 
   font-size: 1.5em;
   font-weight: 400;
-  color: #ffffff;
+  color: #a6ff86;
   margin: 10px 0;
 }
 

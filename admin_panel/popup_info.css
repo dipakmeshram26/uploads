@@ -38,7 +38,6 @@
   box-shadow: 0 0 15px #09a001;
 }
 label {
-  margin-top: 10px;
   color: rgb(212, 212, 212);
 }
 
@@ -59,9 +58,9 @@ label {
 }
 
 /* Form Input Fields */
-input,
+.popup-content input,
 textarea {
-  width: 100%;
+  width: 90%;
   margin: 10px 0;
   padding: 8px;
   border: 1px solid rgb(25, 68, 25);
@@ -71,17 +70,21 @@ textarea {
   transition: 0.3s;
 }
 
-input:focus {
+.popup-content .size {
+  width: 5vh;
+}
+
+.popup-content input:focus {
   outline: none;
   border: 1px solid rgb(38, 195, 38);
   box-shadow: 0 0 15px #38ec89;
 }
 
-input::placeholder {
+.popup-content input::placeholder {
   color: green;
 }
 
-textarea::placeholder {
+.popup-content textarea::placeholder {
   color: green;
 }
 textarea:focus {
@@ -93,7 +96,14 @@ textarea:focus {
 
 /* Submit & No Button */
 
-.submit {
+#sub-clos {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.popup-content .submit {
   padding: 10px;
   background: #226f34;
   color: white;
@@ -106,6 +116,12 @@ textarea:focus {
 }
 .submit:hover {
   background: #218838;
+}
+
+.redio-btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #closeFormBtn {

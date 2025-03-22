@@ -10,14 +10,15 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 
     // Action to add the bookmark to the database
     if (request.action === 'addBookmark') {
-        // Get the category from the request
+        // Get category & description from request
         const category = request.category || "Uncategorized";
+        const description = request.description || "No description available.";
 
         // Ensure the response is not sent until fetch completes
         fetch('http://localhost/uploads/bookmark_extension/add_bookmark.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: `name=${request.name}&url=${request.url}&category=${category}`  // Include category in the body
+            body: `name=${encodeURIComponent(request.name)}&url=${encodeURIComponent(request.url)}&category=${encodeURIComponent(category)}&description=${encodeURIComponent(description)}`  // Include description
         })
             .then(response => response.json())
             .then(data => {

@@ -11,13 +11,17 @@ body {
 }
 
 .navbar {
+  background-color: #0e0f0e;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  justify-content: c;
-  background: #1f1f1f;
-  padding: 15px 20px;
-  color: white;
+  position: fixed;
+  z-index: 7;
+
+  width: 100%;
+  top: 25px;
+  border-radius: 40px;
+  box-shadow: 0 0 10px #00800099;
 }
 
 .logo a {
@@ -32,11 +36,9 @@ body {
 }
 .logo a img {
   height: 5vh;
-  margin: 3px 10px 3px 5px;
-  margin-bottom: 20px;
   border: 2px solid #00ff41;
-  border-radius: 10px;
-  padding: 5px;
+  border-radius: 36px;
+  padding: 11px;
   box-shadow: 0 0 10px rgba(0, 255, 65, 0.8);
 }
 

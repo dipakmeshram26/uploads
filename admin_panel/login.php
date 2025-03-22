@@ -63,7 +63,7 @@ $conn->close();
     <nav class="navbar">
         <div class="logo">
             <a href=""> <img src="site logo.png" alt="">Hacker<span class="red">AI</span></a>
-       
+
         </div>
 
         <ul class="nav-links">
@@ -76,24 +76,35 @@ $conn->close();
         </ul>
     </nav>
     <div id="logid">
-        <div class="form-container">
-            <div class="logo">
-                         <a href="home.php"><img src="site logo.png" alt=""></a>
+        <span class="goll"></span>
+        <span class="goll2"></span>
+        <div class="log-form-container">
+            <div class="admin-log-left">
+                <div class="log-logo">
+                    <a href=""><img src="site logo.png" alt=""></a>
+                </div>
+                <h1>Welcome back</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, nemo hic, assumenda harum nulla placeat
+                    architecto
+                    similique suscipit vitae voluptate vero aut corrupti non quod! Voluptatem magnam iste est ex.</p>
+            </div>
+
+            <div class="admin-log-right">
+                <h2>Admin Login</h2>
+                <p>Welcome Back , Please Log In Your Account</p>
+                <form method="POST" class="login-form">
+                    <div class="form-group">
+
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" placeholder="Enter your username" required>
                     </div>
-            <h2>Admin Login</h2>
-              
-            <form method="POST" class="login-form">
-                <div class="form-group">
-                    
-                    <label for="username">Username</label>
-                    <input type="text" id="username" name="username" placeholder="Enter your username" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
-                </div>
-                <button type="submit">Login</button>
-            </form>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                    </div>
+                    <button type="submit">Login</button>
+                </form>
+            </div>
         </div>
     </div>
     <script>
