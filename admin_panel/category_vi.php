@@ -4,19 +4,27 @@ $username = "root";
 $password = "";
 $dbname = "website_db";
 
+// Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$category = isset($_GET['category']) ? $_GET['category'] : '';
+// GET category from URL
+$category = isset($_GET['category']) ? trim($_GET['category']) : '';
 
-$sql = "SELECT * FROM websites WHERE category = ?";
+if (empty($category)) {
+    die("Invalid category.");
+}
+
+// Fetch websites that have this category
+$sql = "SELECT id, site_name, description, site_link, logo, category FROM websites WHERE FIND_IN_SET(?, category) > 0 ORDER BY created_at DESC";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("s", $category);
 $stmt->execute();
 $result = $stmt->get_result();
+
 ?>
 
 <!DOCTYPE html>
@@ -46,16 +54,17 @@ $result = $stmt->get_result();
 <div class="container">
      <h1>Websites in "<?php echo htmlspecialchars($category); ?>"</h1>
    <p>Explore our organized collection of tools and resources</p>
-     <div class="website-list">
+      <h1>Websites in <?php echo htmlspecialchars($category); ?></h1>
+    <div class="website-list">
         <?php
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-                echo "<div class='website-box'>
-                         <img src='" . $row['logo'] . "' alt='Website Logo' class='website-logo'>
-                        <h3>{$row["site_name"]}</h3>
-                        <p>{$row["description"]}</p>
-                        <a href='{$row["site_link"]}' target='_blank'>Visit Site</a>
-                      </div>";
+                echo "<div class='website-box'>";
+                echo "<img src='" . htmlspecialchars($row['logo']) . "' alt='Website Logo' class='website-logo'>";
+                echo "<h3>" . htmlspecialchars($row['site_name']) . "</h3>";
+                echo "<p>" . htmlspecialchars($row['description']) . "</p>";
+                echo "<a href='" . htmlspecialchars($row['site_link']) . "' target='_blank'>Visit Website</a>";
+                echo "</div>";
             }
         } else {
             echo "<p>No websites found in this category.</p>";

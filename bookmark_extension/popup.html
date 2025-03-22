@@ -9,12 +9,25 @@
 
 <body>
     <form id="bookmark-form">
-        <input type="text" id="website-name" placeholder="Website Name" required>
-        <input type="url" id="website-url" placeholder="Website URL" required>
-        <textarea id="website-description" placeholder="Website Description" required></textarea>
-        <input type="text" id="website-category" placeholder="Category (e.g., News, Blog)" required>
+        <h2>Submit Your Tool</h2>
+        <input type="text" id="website-name" placeholder="Enter Website Name" required>
+        <input type="url" id="website-url" placeholder="Enter Website URL (https://example.com)" required>
+        <textarea id="website-description" placeholder="Write a short description..." required></textarea>
+
+        <!-- Multiple Categories Input with Tags -->
+        <div id="category-container">
+            <input type="text" id="website-category" placeholder="Add categories & press comma (,)">
+        </div>
+
+        <!-- <div id="category-suggestions">
+             <div class="suggestion-item"></div>
+        </div> -->
+        <!-- Popular Categories Suggestion -->
+        <div id="popular-categories"></div>
+
         <button type="submit">Add Bookmark</button>
     </form>
+
     <script src="popup.js"></script>
 </body>
 

@@ -36,6 +36,15 @@ input[type="url"] {
   border-radius: 4px;
   font-size: 16px;
 }
+input,
+textarea,
+button {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
 
 /* Focus state for input fields */
 input[type="text"]:focus,
@@ -61,6 +70,142 @@ button:hover {
   background-color: #45a049;
 }
 
+/* ====== Category Tags & Popular Categories ====== */
+.category-tag {
+  display: inline-block;
+  background: #007bff;
+  color: #fff;
+  padding: 3px 8px;
+  border-radius: 5px;
+  margin: 3px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.category-tag .remove-tag {
+  margin-left: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.tag-container {
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid #ccc;
+  padding: 5px;
+  min-height: 40px;
+  width: 100%;
+}
+
+.tag {
+  background: #007bff;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin: 3px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.remove-tag {
+  margin-left: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  color: white;
+}
+
+#category-suggestions {
+  position: absolute;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  max-height: 200px;
+  overflow-y: auto;
+  width: 100%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.suggestion-item {
+  padding: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #333;
+  transition: background 0.2s;
+}
+
+.suggestion-item:hover {
+  background: #f1f1f1;
+}
+
+#popular-categories {
+  margin-top: 10px;
+}
+
+#popular-categories span {
+  background: #28a745;
+  color: white;
+  padding: 5px 10px;
+  margin: 5px;
+  display: inline-block;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* ====== Website Display Styles ====== */
+.website-box {
+  background: white;
+  margin: 15px;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+.website-logo {
+  max-height: 50px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.website-box a {
+  display: inline-block;
+  background: #28a745;
+  color: white;
+  padding: 5px 10px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.website-box a:hover {
+  background: #218838;
+}
+
+/* ====== Action Buttons ====== */
+.edit-btn,
+.delete-btn,
+.toggle-btn {
+  border: none;
+  padding: 5px 10px;
+  margin: 5px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.edit-btn {
+  background: #ffc107;
+  color: white;
+}
+
+.delete-btn {
+  background: #dc3545;
+  color: white;
+}
+
+.toggle-btn {
+  background: #17a2b8;
+  color: white;
+}
 /* Error message style */
 .error-message {
   color: red;
