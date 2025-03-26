@@ -23,9 +23,9 @@ if (!isset($_SESSION['admin_logged_in'])) {
     <nav class="navbar">
         <div class="logo">
             <a href="dashboard.php"><img src="site logo.png" alt=""></a>
-             
+            <h2>Admin <span class="red">Panel</span> </h2>
         </div>
-        <h2>Admin <span class="red">Panel</span> </h2>
+        
         <ul class="nav-links">
             <li><a href="dashboard.php">Dashboard</a></li>
             <li><a href="categories.php">Categories</a></li> <!-- Link to categories page -->
@@ -46,14 +46,17 @@ if (!isset($_SESSION['admin_logged_in'])) {
     </nav>
 
     <div class="dashboard-container">
-        
+         
+
         <div class="home-container">
+        <span class="crll1"></span>
+        <span class="crll2"></span>
             <h3 class="wlcm">Hello,
             <?php echo $_SESSION['admin_username']; ?>!
         </h3>
         
         <h1>Welcome to Our Community</h1>
-            <h4>Manage Your Tools</h4>
+            <!-- <h4>Manage Your Tools</h4> -->
              <p>Search tools:</p>
 
             <div class="search-bar">

@@ -81,20 +81,29 @@ document.addEventListener('DOMContentLoaded', function () {
             suggestionsBox.id = 'category-suggestions';
             categoryInput.parentNode.appendChild(suggestionsBox);
         }
-
-        suggestionsBox.innerHTML = '';
-        categories.forEach(category => {
-            let suggestionItem = document.createElement('div');
-            suggestionItem.classList.add('suggestion-item');
-            suggestionItem.textContent = category;
-            suggestionItem.onclick = function () {
-                createTag(category);
-                categoryInput.value = '';
-                suggestionsBox.innerHTML = ''; // Clear suggestions after selection
-            };
-            suggestionsBox.appendChild(suggestionItem);
+    
+        suggestionsBox.innerHTML = ''; // पहले की suggestions को हटाएं
+    
+        categories.forEach(categoryGroup => {
+            // ✅ अगर categoryGroup comma-separated है, तो उसे अलग-अलग categories में तोड़ें
+            let individualCategories = categoryGroup.split(',');
+    
+            individualCategories.forEach(category => {
+                let suggestionItem = document.createElement('div');
+                suggestionItem.classList.add('suggestion-item');
+                suggestionItem.textContent = category.trim();
+    
+                suggestionItem.onclick = function () {
+                    createTag(category.trim());
+                    categoryInput.value = '';
+                    suggestionsBox.innerHTML = ''; // Select करने के बाद suggestions हटाएं
+                };
+    
+                suggestionsBox.appendChild(suggestionItem);
+            });
         });
     }
+    
 
     // **Form Submission with Multi-Category Support**
     document.getElementById('bookmark-form').addEventListener('submit', function (event) {
@@ -130,7 +139,7 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(data => {
                 if (data.success) {
                     alert('Bookmark added successfully!');
-                    location.reload();
+                    window.close();
                 } else {
                     alert('Error adding bookmark: ' + data.error);
                 }
